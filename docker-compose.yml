@@ -7,7 +7,6 @@ services:
   # listmonk app
   app:
     image: listmonk/listmonk:latest
-    container_name: listmonk_app
     restart: unless-stopped
     ports:
       - "9001:9001"
@@ -51,7 +50,6 @@ services:
   # Postgres database
   listmonkdb:
     image: postgres:17-alpine
-    container_name: listmonk_db
     restart: unless-stopped
     ports:
       - "0.0.0.0:5434:5434"                                 # Only bind on the local interface. To connect to Postgres externally, change this to 0.0.0.0
