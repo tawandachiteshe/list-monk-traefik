@@ -24,7 +24,7 @@ services:
         - bans-network
     hostname: marketing.umbiro.com                            # Recommend using FQDN for hostname
     depends_on:
-      - db
+      - listmonkdb
     command: [sh, -c, "./listmonk --install --idempotent --yes --config '' && ./listmonk --upgrade --yes --config '' && ./listmonk --config ''"]
                                                               # --config (file) param is set to empty so that listmonk only uses the env vars (below) for config.
                                                               # --install --idempotent ensures that DB installation happens only once on an empty DB, on the first ever start.
