@@ -10,7 +10,7 @@ services:
     container_name: listmonk_app
     restart: unless-stopped
     ports:
-      - "9000:9000"
+      - "9001:9001"
     # To change the externally exposed port, change to: $custom_port:9000
    
 
@@ -19,7 +19,7 @@ services:
       - "traefik.http.routers.marketing.rule=Host(`marketing.umbiro.com`)"
       - "traefik.http.routers.marketing.entrypoints=websecure"
       - "traefik.http.routers.marketing.tls.certresolver=myresolver"
-      - "traefik.http.services.marketing.loadbalancer.server.port=9000"
+      - "traefik.http.services.marketing.loadbalancer.server.port=9001"
     networks:
         - bans-network
     hostname: marketing.umbiro.com                            # Recommend using FQDN for hostname
@@ -31,7 +31,7 @@ services:
                                                               # --upgrade automatically runs any DB migrations when a new image is pulled.
 
     environment:                                              # The same params as in config.toml are passed as env vars here.
-      LISTMONK_app__address: 0.0.0.0:9000
+      LISTMONK_app__address: 0.0.0.0:9001
       LISTMONK_db__user: *db-user
       LISTMONK_db__password: *db-password
       LISTMONK_db__database: *db-name
