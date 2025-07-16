@@ -49,14 +49,14 @@ services:
                                                               # To use this, change directory path in Admin -> Settings -> Media to /listmonk/uploads
 
   # Postgres database
-  db:
+  listmonkdb:
     image: postgres:17-alpine
     container_name: listmonk_db
     restart: unless-stopped
     ports:
       - "127.0.0.1:5434:5434"                                 # Only bind on the local interface. To connect to Postgres externally, change this to 0.0.0.0
     networks:
-      - listmonk
+      - bans-network
     environment:
       <<: *db-credentials
     healthcheck:
