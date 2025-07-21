@@ -68,7 +68,7 @@ services:
         target: /var/lib/postgresql/data
 
 networks:
-  bans-network:
+  dokploy-network:
     external: true
 
 volumes:
