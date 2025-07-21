@@ -3,6 +3,7 @@ x-db-credentials: &db-credentials                             # Use the default 
   POSTGRES_PASSWORD: &db-password listmonk
   POSTGRES_DB: &db-name listmonk
 
+
 services:
   # listmonk app
   app:
