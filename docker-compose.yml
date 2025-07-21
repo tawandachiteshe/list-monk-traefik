@@ -20,7 +20,7 @@ services:
       - "traefik.http.routers.marketing.tls.certresolver=letsencrypt"
       - "traefik.http.services.marketing.loadbalancer.server.port=9001"
     networks:
-        - bans-network
+        - dokploy-network
     hostname: marketing.umbiro.com                            # Recommend using FQDN for hostname
     depends_on:
       - listmonkdb
