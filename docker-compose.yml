@@ -17,7 +17,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.marketing.rule=Host(`marketing.umbiro.com`)"
       - "traefik.http.routers.marketing.entrypoints=websecure"
-      - "traefik.http.routers.marketing.tls.certresolver=myresolver"
+      - "traefik.http.routers.marketing.tls.certresolver=letsencrypt"
       - "traefik.http.services.marketing.loadbalancer.server.port=9001"
     networks:
         - bans-network
